@@ -16,7 +16,7 @@ public struct Entry
     }
 }
 
-//[InvocationCount(200000, 4)] // fast for debug
+//[InvocationCount(20000, 1)] // fast for debug
 public class BigintBenchmark
 {
     public static IEnumerable<object[]> GetSizes() => ParamsBigint.AllParams();
