@@ -25,7 +25,7 @@ public class BigintBenchmark
     [ArgumentsSource(nameof(GetSizes))]
     public BigInteger Add(Entry left, Entry right)
     {
-        return left.Value + right.Value;
+        return right.Value + left.Value;
     }
 
     [Benchmark]

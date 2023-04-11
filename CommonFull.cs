@@ -54,24 +54,22 @@ public class ParamsBigint
     private static Entry[] GetLeftParams()
     {
 
-        int[] sizes = {31, 32, 64, 128, 256, 512, 1024, 4096, 16384, 65536, 262144}; // huge
-        //int[] sizes = {31, 32, 64, 128, 256, 512, 1024, 4096, 16384, 65536}; // normal
-        //int[] sizes = {31, 256, 4096, 16384}; // short
-        //int[] sizes = {4096}; // debug-only
+        //int[] sizes = {31, 32, 64, 128, 256, 512, 1024, 4096, 16384, 65536, 262144};
+        int[] sizes = {31, 32, 64, 128, 256, 512, 2048, 4096, 8192, 32768, 131072, 524288, 2097152};
 
         List<Entry> res = new();
 
         // hard-coded small values:
 
-        res.Add(CreateParameterEntry(0, -1, true));
-        res.Add(CreateParameterEntry(0, 0, true));
-        res.Add(CreateParameterEntry(16, 0, true));
+        //res.Add(CreateParameterEntry(0, -1, true));
+        //res.Add(CreateParameterEntry(0, 0, true));
+        //res.Add(CreateParameterEntry(16, 0, true));
 
         // 2^i+j, i from sizes, j hardcoded :
 
         foreach (int i in sizes)
         {
-            for (int j=-1; j<=1; j++)
+            for (int j=-1; j<=0; j++)
             {
                 res.Add(CreateParameterEntry(i, j, true));
             }
@@ -84,13 +82,13 @@ public class ParamsBigint
     private static Entry[] GetRightParams(Entry left)
     {
 
-        int[] sizes = {31, 32};
+        int[] sizes = {31};
 
         List<Entry> res = new();
 
         // hard-coded small values:
 
-        res.Add(CreateParameterEntry(0, -1, false));
+        //res.Add(CreateParameterEntry(0, -1, false));
         if (left.Value > BigInteger.Zero)
         {
             res.Add(CreateParameterEntry(0, 0, false));
